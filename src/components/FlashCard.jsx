@@ -4,12 +4,11 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useNavigate } from "react-router-dom";
-import PropTypes from "prop-types";
 
-
-
-function FlashCard({ card, onFlip, flipped, onLike, onEdit, onDelete }) {
+function FlashCard({ card, onFlip, flipped, onLike, onDelete }) {
   const hover = useHoverEffect();
+  const navigate = useNavigate(); // for redirection
+
   return (
     <div
       {...hover}
@@ -46,13 +45,19 @@ function FlashCard({ card, onFlip, flipped, onLike, onEdit, onDelete }) {
         >
           <FavoriteBorderIcon />
         </button>
+
+        {/* 🔥 Redirect to Edit page */}
         <button
           className="p-2 rounded-full bg-indigo-100 hover:bg-indigo-200 text-indigo-500 transition"
-          onClick={(event) => { event.stopPropagation(); onEdit(card.id); }}
+          onClick={(event) => {
+            event.stopPropagation();
+            navigate(`/edit/${card.id}`);
+          }}
           aria-label="Edit"
         >
           <EditIcon />
         </button>
+
         <button
           className="p-2 rounded-full bg-indigo-100 hover:bg-indigo-200 text-red-400 transition"
           onClick={(event) => { event.stopPropagation(); onDelete(card.id); }}

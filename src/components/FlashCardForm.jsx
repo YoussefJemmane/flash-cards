@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHoverEffect } from "../hooks/Hover";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
 
-function FlashCardForm({ onSave, onCancel }) {
-  const [title, setTitle] = useState("");
-  const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
+function FlashCardForm({ onSave, onCancel, initialData }) {
+  const [title, setTitle] = useState(initialData?.title || "");
+  const [question, setQuestion] = useState(initialData?.question || "");
+  const [answer, setAnswer] = useState(initialData?.answer || "");
+
+  useEffect(() => {
+    if (initialData) {
+      setTitle(initialData.title || "");
+      setQuestion(initialData.question || "");
+      setAnswer(initialData.answer || "");
+    }
+  }, [initialData]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -20,7 +28,7 @@ function FlashCardForm({ onSave, onCancel }) {
         className="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md flex flex-col gap-6"
         onSubmit={handleSubmit}
       >
-        <h2 className="text-2xl font-bold text-indigo-800 mb-2">Create Flash Card</h2>
+        <h2 className="text-2xl font-bold text-indigo-800 mb-2">{initialData ? "Edit Flash Card" : "Create Flash Card"}</h2>
         
         <input
           className="border border-indigo-200 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-300"

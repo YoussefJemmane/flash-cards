@@ -40,13 +40,13 @@ const Hero = () => {
                 <Link to="/cards" aria-label="Get started with FlashMind flashcards">
                     <button
                         className="mt-6 px-10 py-5 bg-indigo-600 text-white text-lg font-semibold rounded-2xl shadow-lg
-      cursor-pointer
-      transition-all duration-300 ease-in-out transform
-      hover:scale-105 hover:bg-indigo-700 hover:shadow-2xl
-      focus:outline-none focus:ring-4 focus:ring-indigo-300
-      active:scale-95
-      animate-bounce
-    "
+                            cursor-pointer
+                            transition-all duration-300 ease-in-out transform
+                            hover:scale-105 hover:bg-indigo-700 hover:shadow-2xl
+                            focus:outline-none focus:ring-4 focus:ring-indigo-300
+                            active:scale-95
+                            animate-bounce
+                            "
                     >
                         Get Started
                     </button>
@@ -59,9 +59,9 @@ const Hero = () => {
                     title="Learning Reinvented"
                     Icon={SchoolIcon}
                     content={`FlashCardAS transforms traditional studying into active recall and spaced repetition techniques.
-With customizable decks, your learning becomes personalized and engaging.
-No more passive reading — just focused, effective study sessions.
-Perfect for students, professionals, and lifelong learners.`}
+                                With customizable decks, your learning becomes personalized and engaging.
+                                No more passive reading — just focused, effective study sessions.
+                                Perfect for students, professionals, and lifelong learners.`}
                 />
                 <FlashcardInfoCard
                     title="Smart Repetition"

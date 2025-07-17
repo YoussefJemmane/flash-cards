@@ -1,60 +1,23 @@
+import React from "react";
 import FlashCard from "../components/FlashCard";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-import { useState, useEffect } from "react";
 import FlashCardForm from "../components/FlashCardForm";
+import { useNavigate } from "react-router";
 
-
-
-export default function Cards() {
-  const [cards, setCards] = useState(() => {
-    const savedCards = localStorage.getItem("flashcards");
-    return savedCards ? JSON.parse(savedCards) : [];
-  });
-
-  const [flippedId, setFlippedId] = useState(null);
-  const [showForm, setShowForm] = useState(false);
-  
-  useEffect(() => {
-    localStorage.setItem("flashcards", JSON.stringify(cards));
-  }, [cards]);
-
-  function handleFlip(id) {
-    setFlippedId(flippedId === id ? null : id);
-  }
-
-  function handleLike(id) {
-    const updatedCards = cards.map(card => {
-      if (card.id === id) {
-        return { ...card, liked: !card.liked };
-      }
-      return card;
-    });
-    setCards(updatedCards);
-  }
-
-  function handleEdit(id) {
-    alert("Edit card " + id);
-  }
-
-  function handleDelete(id) {
-    const updatedCards = cards.filter(card => card.id !== id);
-    setCards(updatedCards);
-  }
-
-  function handleCreate() {
-    setShowForm(true);
-  }
-
-  function handleSave(newCardData) {
-    const newCard = { ...newCardData, id: Date.now(), liked: false };
-    setCards(currentCards => [...currentCards, newCard]);
-    setShowForm(false);
-  }
-
-  function handleCancel() {
-    setShowForm(false);
-   
-  }
+export default function Cards({
+  cards,
+  flippedId,
+  showForm,
+  editId,
+  onFlip,
+  onLike,
+  onEdit,
+  onDelete,
+  onCreate,
+  onSave,
+  onCancel
+}) {
+  const editingCard = editId ? cards.find(card => card.id === editId) : null;
 
   return (
     <div className="bg-gradient-to-b from-indigo-50 to-blue-100 min-h-screen font-montserrat">
@@ -63,7 +26,7 @@ export default function Cards() {
           <h1 className="text-4xl font-extrabold text-indigo-900">My Flash Cards</h1>
           <button
             className="flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white text-lg font-semibold rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300"
-            onClick={handleCreate}
+            onClick={onCreate}
           >
             <AddCircleIcon />
             Create Flash Card
@@ -76,10 +39,10 @@ export default function Cards() {
               key={card.id}
               card={card}
               flipped={flippedId === card.id}
-              onFlip={() => handleFlip(card.id)}
-              onLike={handleLike}
-              onEdit={handleEdit}
-              onDelete={handleDelete}
+              onFlip={() => onFlip(card.id)}
+              onLike={onLike}
+              onEdit={onEdit}
+              onDelete={onDelete}
             />
           ))}
         </div>
@@ -87,8 +50,9 @@ export default function Cards() {
 
       {showForm && (
         <FlashCardForm
-          onSave={handleSave}
-          onCancel={handleCancel}
+          onSave={onSave}
+          onCancel={onCancel}
+          initialData={editingCard}
         />
       )}
     </div>
