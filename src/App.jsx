@@ -7,7 +7,6 @@ import Cards from "./pages/Cards";
 import LikedCards from "./pages/LikedCards";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import EditCard from "./components/EditCard"; // Assuming this is the correct path for EditCard component
 function App() {
   // const location = useLocation();
   let navigate = useNavigate();
@@ -33,8 +32,7 @@ function App() {
 
   function handleEdit(id) {
     setEditId(id);
-    navigate("/edit-card");
-    // setShowForm(true);
+    setShowForm(true);
   }
 
   function handleDelete(id) {
@@ -90,12 +88,17 @@ function App() {
         <Route path="/liked-cards" element={
           <LikedCards
             cards={cards}
+            flippedId={flippedId}
+            showForm={showForm}
+            editId={editId}
+            onFlip={handleFlip}
             onLike={handleLike}
-            onDelete={handleDelete}
             onEdit={handleEdit}
+            onDelete={handleDelete}
+            onSave={handleSave}
+            onCancel={handleCancel}
           />
         } />
-        <Route path="/edit/:id" element={<EditCard cards={cards} onEditSave={handleEditSave} />} />
       </Routes>
       <Footer />
     </div>
