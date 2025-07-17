@@ -6,10 +6,9 @@ import Home from "./pages/Home";
 import Cards from "./pages/Cards";
 import LikedCards from "./pages/LikedCards";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
+
 function App() {
   // const location = useLocation();
-  let navigate = useNavigate();
   const [cards, setCards] = useState(() => {
     const savedCards = localStorage.getItem("flashcards");
     return savedCards ? JSON.parse(savedCards) : [];

@@ -33,7 +33,7 @@ export default function Cards({
           </button>
         </div>
 
-        <div className="flex overflow-x-auto py-8 scrollbar-thin scrollbar-thumb-indigo-300 scrollbar-track-indigo-100">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 py-8">
           {cards.map(card => (
             <FlashCard
               key={card.id}

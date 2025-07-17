@@ -10,7 +10,7 @@ function FlashCard({ card, onFlip, flipped, onLike, onEdit, onDelete }) {
   return (
     <div
       {...hover}
-      className="bg-white rounded-3xl shadow-lg w-80 h-64 mx-4 flex flex-col justify-between relative transition-all duration-300 cursor-pointer"
+      className="bg-white rounded-3xl shadow-lg w-full h-64 flex flex-col justify-between relative transition-all duration-300 cursor-pointer"
       onClick={onFlip}
       style={{ perspective: "1000px" }}
     >

@@ -1,11 +1,8 @@
-import { useHoverEffect } from "../hooks/Hover";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from "../images/Card.png";
 
 export const Navbar = () => {
-    const HoverSearch = useHoverEffect();
-    const HoverCards = useHoverEffect();
-    const HoverLikedCards = useHoverEffect();
+    const navigate = useNavigate();
 
     return (
         <div className="relative">
@@ -23,23 +20,19 @@ export const Navbar = () => {
 
                     {/* Navigation */}
                     <nav className="flex flex-col sm:flex-row flex-wrap gap-4 text-center text-indigo-900 font-montserrat font-semibold text-lg md:text-xl lg:text-2xl">
-                        <Link to="/cards">
-                            <div
-                                {...HoverCards}
-                                className="cursor-pointer px-5 py-3 rounded-full hover:bg-indigo-300/50 hover:text-indigo-800 transition-all duration-300"
-                            >
-                                My Cards
-                            </div>
-                        </Link>
+                        <div
+                            onClick={() => navigate('/cards')}
+                            className="cursor-pointer px-5 py-3 rounded-full hover:bg-indigo-300/50 hover:text-indigo-800 transition-all duration-300"
+                        >
+                            My Cards
+                        </div>
 
-                        <Link to="/liked-cards">
-                            <div
-                                {...HoverLikedCards}
-                                className="cursor-pointer px-5 py-3 rounded-full hover:bg-indigo-300/50 hover:text-indigo-800 transition-all duration-300"
-                            >
-                                Liked Cards
-                            </div>
-                        </Link>
+                        <div
+                            onClick={() => navigate('/liked-cards')}
+                            className="cursor-pointer px-5 py-3 rounded-full hover:bg-indigo-300/50 hover:text-indigo-800 transition-all duration-300"
+                        >
+                            Liked Cards
+                        </div>
                     </nav>
                 </div>
             </header>

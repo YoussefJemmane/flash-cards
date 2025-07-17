@@ -30,7 +30,7 @@ export default function LikedCards({
         </div>
 
         {likedCards.length > 0 ? (
-          <div className="flex overflow-x-auto py-8 scrollbar-thin scrollbar-thumb-indigo-300 scrollbar-track-indigo-100">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 py-8">
             {likedCards.map((card) => (
               <FlashCard
                 key={card.id}

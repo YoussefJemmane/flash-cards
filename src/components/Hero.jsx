@@ -53,8 +53,8 @@ const Hero = () => {
                 </Link>
             </section>
 
-            {/* Cards Section (unchanged) */}
-            <section className="px-6 space-y-12 pb-30">
+            {/* Cards Section */}
+            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 pb-30">
                 <FlashcardInfoCard
                     title="Learning Reinvented"
                     Icon={SchoolIcon}
