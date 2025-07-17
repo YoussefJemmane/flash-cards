@@ -1,5 +1,5 @@
 import { useHoverEffect } from "../hooks/Hover";
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import logo from "../images/Card.png";
 
 export const Navbar = () => {

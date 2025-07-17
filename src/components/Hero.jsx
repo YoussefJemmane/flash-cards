@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import FlashcardInfoCard from "./FlashCardInfo";
 
 // Icons
@@ -37,7 +37,7 @@ const Hero = () => {
                 </p>
 
                 {/* Modern button with pointer, bigger size, and scale + fill hover effect */}
-                <Link to="/flashcards" aria-label="Get started with FlashMind flashcards">
+                <Link to="/cards" aria-label="Get started with FlashMind flashcards">
                     <button
                         className="mt-6 px-10 py-5 bg-indigo-600 text-white text-lg font-semibold rounded-2xl shadow-lg
       cursor-pointer
