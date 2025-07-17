@@ -23,15 +23,6 @@ export const Navbar = () => {
 
                     {/* Navigation */}
                     <nav className="flex flex-col sm:flex-row flex-wrap gap-4 text-center text-indigo-900 font-montserrat font-semibold text-lg md:text-xl lg:text-2xl">
-                        <Link to="/home">
-                            <div
-                                {...HoverSearch}
-                                className="cursor-pointer px-5 py-3 rounded-full hover:bg-indigo-300/50 hover:text-indigo-800 transition-all duration-300"
-                            >
-                                Home
-                            </div>
-                        </Link>
-
                         <Link to="/cards">
                             <div
                                 {...HoverCards}

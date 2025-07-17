@@ -2,21 +2,22 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
-import CardPage from "./components/CardPage";
+import Home from "./pages/Home";
+import Cards from "./pages/Cards";
 
 function App() {
   const location = useLocation();
-  const showFooter = location.pathname !== '/cards';
+  
 
   return (
     <div className="overflow-hidden">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Hero />} />
+        <Route path="/" element={<Home />} />
         <Route path="/home" element={<Hero />} />
-        <Route path="/cards" element={<CardPage />} />
+        <Route path="/cards" element={<Cards />} />
       </Routes>
-      {showFooter && <Footer />}
+      <Footer />
     </div>
   );
 }
