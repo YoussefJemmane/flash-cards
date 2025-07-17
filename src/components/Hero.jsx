@@ -8,6 +8,12 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import DevicesIcon from "@mui/icons-material/Devices";
 import BoltIcon from "@mui/icons-material/Bolt";
 import SmartphoneIcon from "@mui/icons-material/Smartphone";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import FlipCameraAndroidIcon from "@mui/icons-material/FlipCameraAndroid";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import EditIcon from "@mui/icons-material/Edit";
+import StorageIcon from "@mui/icons-material/Storage";
+
 import Logo from "../images/Card2.png"
 
 const Hero = () => {
@@ -55,54 +61,56 @@ const Hero = () => {
 
             {/* Cards Section */}
             <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 pb-30">
+               
                 <FlashcardInfoCard
-                    title="Learning Reinvented"
-                    Icon={SchoolIcon}
-                    content={`FlashCardAS transforms traditional studying into active recall and spaced repetition techniques.
-                                With customizable decks, your learning becomes personalized and engaging.
-                                No more passive reading — just focused, effective study sessions.
-                                Perfect for students, professionals, and lifelong learners.`}
+                    title="Create Custom Flash Cards"
+                    Icon={AddCircleIcon}
+                    content={`Easily create personalized flash cards with titles, questions, and answers.
+Build your own study materials tailored to your learning needs.
+Whether it's vocabulary, formulas, or concepts — create cards that work for you.
+Simple form interface makes card creation quick and intuitive.`}
                 />
                 <FlashcardInfoCard
-                    title="Smart Repetition"
-                    Icon={MemoryIcon}
-                    content={`Our built-in repetition scheduler keeps track of when you should review cards.
-Using proven spaced repetition techniques, we remind you just before you're likely to forget.
-This boosts long-term memory retention and reduces wasted time.
-Perfect for exams, languages, and certifications.`}
+                    title="Interactive Card Flipping"
+                    Icon={FlipCameraAndroidIcon}
+                    content={`Experience smooth 3D card flipping animations that make studying engaging.
+Click any card to reveal the answer with a satisfying flip effect.
+Visual feedback helps reinforce memory through interactive learning.
+Beautifully designed cards with hover effects and transitions.`}
                 />
                 <FlashcardInfoCard
-                    title="Track Your Progress"
-                    Icon={BarChartIcon}
-                    content={`Visual reports help you monitor your mastery over time.
-Track your accuracy, most missed cards, review frequency, and more.
-Get detailed insights to improve your strategy.
-You’ll always know what you’ve mastered and what needs more work.`}
+                    title="Like & Organize Cards"
+                    Icon={FavoriteIcon}
+                    content={`Mark your favorite cards and access them in a dedicated "Liked Cards" section.
+Quickly identify important cards you want to review more frequently.
+Organize your study materials by separating liked cards from your main collection.
+Visual indicators show which cards you've liked at a glance.`}
                 />
                 <FlashcardInfoCard
-                    title="Study Anywhere"
+                    title="Edit & Delete Cards"
+                    Icon={EditIcon}
+                    content={`Full control over your flash cards with easy editing and deletion.
+Update card content, fix typos, or improve questions and answers.
+Remove cards you no longer need to keep your collection clean.
+Intuitive interface makes managing your cards effortless.`}
+                />
+                <FlashcardInfoCard
+                    title="Local Storage & Persistence"
+                    Icon={StorageIcon}
+                    content={`Your flash cards are automatically saved in your browser's local storage.
+No account required — your data stays private and secure on your device.
+Cards persist between sessions so you never lose your progress.
+Instant loading and no internet connection required for studying.`}
+                />
+                <FlashcardInfoCard
+                    title="Responsive Design"
                     Icon={DevicesIcon}
-                    content={`Continue learning seamlessly across your devices.
-FlashCardAS works in any browser, and automatically syncs your data.
-Start on your laptop, continue on your tablet, and review on your phone.
-You never lose progress, even if you switch devices.`}
+                    content={`Study on any device with our fully responsive design.
+Optimized for desktop, tablet, and mobile viewing.
+Cards adapt beautifully to different screen sizes and orientations.
+Same great experience whether you're at home or on the go.`}
                 />
-                <FlashcardInfoCard
-                    title="Fast and Lightweight"
-                    Icon={BoltIcon}
-                    content={`FlashCardAS is blazing fast and distraction-free.
-No ads, no clutter — just simple tools for effective learning.
-Whether you have 5 minutes or 50, it loads instantly and gets you studying.
-Built to support deep focus and flow.`}
-                />
-                <FlashcardInfoCard
-                    title="Mobile App (Coming Soon)"
-                    Icon={SmartphoneIcon}
-                    content={`Take FlashCardAS offline with our upcoming mobile app.
-Study flashcards anytime — even on a plane or subway.
-Native iOS and Android support ensures smooth performance.
-Notifications, dark mode, and offline sync included from day one.`}
-                />
+           
             </section>
         </div>
     );
